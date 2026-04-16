@@ -1,5 +1,7 @@
 pipeline {
+      
 agent any
+      
 environment {
 DOCKERHUB_CREDENTIALS='docker_credentials_c2'
 IMAGE_NAME='rohi367/new_docker_image'
@@ -27,8 +29,8 @@ stages{
        withCredentials(usernamePassword(
        credentialsId:'docker_credentials_c2'
        usernameVariable: 'USER',
-       passwordVariable:  'PASS')]) {
-            bat 'echo %PASS% | docker login -u %USER% --password-stdin'
+       passwordVariable: 'PASS')]) {
+            bat 'echo %PASS%| docker login -u %USER% --password-stdin'
 }
 }
 }
