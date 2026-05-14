@@ -1,0 +1,67 @@
+import java.io.FileReader;
+
+
+
+
+import org.json.simple.JSONObject;
+
+import org.json.simple.parser.JSONParser;
+
+
+
+
+public class thoju {
+
+
+
+
+    public static void main(String[] args) {
+
+
+
+
+        JSONParser p = new JSONParser();
+
+
+
+
+        try {
+
+
+
+
+            Object obj = p.parse(new FileReader("san.json"));
+
+
+
+
+            JSONObject jo = (JSONObject) obj;
+
+
+
+
+            String fname = (String) jo.get("fname");
+
+            String lname = (String) jo.get("lname");
+
+
+
+
+            System.out.println("Fname : " + fname);
+
+            System.out.println("lname : " + lname);
+
+
+
+
+        } 
+
+        catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
+}
